@@ -12,17 +12,19 @@ public class ChatContext {
     public static void main(String[] args) {
         Scanner userinput;
         String cmdline;
-        ChatMemory cm = MessageWindowChatMemory.withMaxMessages(100);
-
-        SystemMessage sysmsg = new SystemMessage("""
-                    You are a polite Java consultant with deep expertise in teaching AI and Machine Learning.
-                """);
-        cm.add(sysmsg);
 
         ChatLanguageModel cmodel = OpenAiChatModel.builder()
                 .apiKey(System.getenv("OPENAI_API_KEY"))
                 .modelName(OpenAiChatModelName.GPT_4)
                 .build();
+
+        ChatMemory cm = MessageWindowChatMemory.withMaxMessages(100);
+
+        SystemMessage sysmsg = new SystemMessage("""
+                    You are a polite software consultant with deep expertise in teaching AI and Machine Learning.
+                """);
+        cm.add(sysmsg);
+
 
         while (true) {
             System.out.print("prompt> ");
