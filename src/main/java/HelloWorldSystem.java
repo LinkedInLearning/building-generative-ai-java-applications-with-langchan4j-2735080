@@ -17,7 +17,7 @@ public class HelloWorldSystem {
                 .modelName(OpenAiChatModelName.GPT_4_O)
                 .temperature(.3)                        // keep randomness low
                 .timeout(Duration.ofSeconds(120))       // network timeout is 2 min
-                .maxTokens(256)                         // keep data charges low
+                .maxTokens(512)                         // keep data charges low
                 .build();
 
         System.out.println("Hello World System ---------------------");
