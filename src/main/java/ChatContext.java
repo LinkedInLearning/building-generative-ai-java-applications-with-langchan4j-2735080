@@ -44,6 +44,7 @@ public class ChatContext {
             System.out.println(response);
 
             cm.add(UserMessage.from(response));     // Add the response from the assistant
+                                                    // Could have added answer.aiMessage()
         }
     }
 }
