@@ -1,6 +1,6 @@
 import dev.langchain4j.data.message.ChatMessage;
 import dev.langchain4j.data.message.UserMessage;
-import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.chat.ChatModel;
 import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.googleai.GoogleAiGeminiChatModel;
 import dev.langchain4j.model.mistralai.MistralAiChatModel;
@@ -59,12 +59,12 @@ public class Collaboration {
      * @throws Exception
      */
     static String sendToLLM(String vendor, List<ChatMessage> chatMessages) throws Exception {
-        ChatLanguageModel clm = switch (vendor.toLowerCase()) {
+        ChatModel clm = switch (vendor.toLowerCase()) {
             case "openai" ->
                     OpenAiChatModel.builder()
                             .apiKey(System.getenv("OPENAI_API_KEY"))
                             .modelName(OpenAiChatModelName.GPT_4)
-                            .temperature(.3)   // make it overly creative so there's opportunity to fix
+                            .temperature(.3)   // make it overly creative so there's an opportunity to fix
                             .build();
             case "gemini" ->
                     GoogleAiGeminiChatModel.builder()
