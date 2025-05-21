@@ -12,9 +12,11 @@ public class HelloLangChain4j {
                 .modelName(OpenAiChatModelName.GPT_4_O)
                 .build();
 
-        UserMessage usrmsg = UserMessage.from("Why should I learn Java.");
-        var answer = cmodel.chat(usrmsg);
+        var answer = cmodel.chat("Why should I learn Java.");
+        System.out.println(answer);
 
-        System.out.println(answer.aiMessage().text());
+        //UserMessage usrmsg = UserMessage.from("Why should I learn Java.");
+        //var answer = cmodel.chat(usrmsg);
+        //System.out.println(answer.aiMessage().text());
     }
 }
